@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h1 class="card-title text-center mb-4">Welcome to Sarasota Gospel Temple</h1>
+            <p class="text-center mb-4">At Sarasota Gospel Temple, we welcome everyone to worship, connect, and grow in faith. Join us for our weekly services and be part of our loving community.</p>
+
+            <div class="row mt-4">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-calendar-alt me-2"></i> Service Times</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><i class="fas fa-sun me-1"></i> Sunday Service: 11 AM</li>
+                                <li class="list-group-item"><i class="fas fa-pray me-1"></i> Tuesday Prayer Meeting: 7 PM</li>
+                                <li class="list-group-item"><i class="fas fa-book-open me-1"></i> Friday Bible Study: 7 PM</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-user-plus me-2"></i> New to SGT?</h5>
+                            <p class="card-text">We’d love to connect with you! Fill out our visitor form to get started.</p>
+                            <a href="{% url 'visitor_form' %}" class="btn btn-primary w-100">Fill Out Visitor Form <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-envelope me-2"></i> Contact Us</h5>
+                            <p class="card-text">Email: <a href="mailto:rerxab@gmail.com" class="text-decoration-none text-dark">rerxab@gmail.com</a> | Phone: <a href="tel:9415382650" class="text-decoration-none text-dark">(941) 538-2650</a></p>
+                            <a href="{% url 'contact' %}" class="btn btn-secondary w-100">Learn More <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h1 class="card-title text-center mb-4"><i class="fas fa-envelope me-2"></i> Contact Us</h1>
+
+            <div class="row g-3">
+                <div class="col-md-6 offset-md-3">
+                    <p class="text-center mb-3"><strong>Reach out to us for more information or to connect with our community!</strong></p>
+                    
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex align-items-center">
+                            <i class="fas fa-envelope me-2 text-primary"></i>
+                            <a href="mailto:rerxab@gmail.com" class="text-decoration-none text-dark stretched-link">rerxab@gmail.com</a>
+                        </li>
+                        <li class="list-group-item d-flex align-items-center">
+                            <i class="fas fa-phone me-2 text-primary"></i>
+                            <a href="tel:9415382650" class="text-decoration-none text-dark stretched-link">(941) 538-2650</a>
+                        </li>
+                        <li class="list-group-item d-flex align-items-center">
+                            <i class="fas fa-map-marker-alt me-2 text-primary"></i>
+                            3621 Tallevast Rd, Sarasota, FL 34243
+                        </li>
+                    </ul>
+
+                    <h3 class="mt-4 text-center">Send Us a Message</h3>
+                    <form method="POST" class="mt-3">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <button type="submit" class="btn btn-primary w-100 mt-3">Send Message <i class="fas fa-paper-plane ms-1"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

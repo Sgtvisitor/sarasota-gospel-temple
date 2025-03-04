@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+    <header class="mb-4">
+        <a href="{% url 'login' %}" class="btn btn-primary mb-3">Administrator Login <i class="fas fa-user-shield ms-1"></i></a>
+    </header>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h1 class="card-title text-center mb-4">Welcome to Sarasota Gospel Temple Visitor Management</h1>
+            <p class="text-center mb-4">If you're a visitor, please fill out the form below.</p>
+
+            <form method="POST" class="row g-3 needs-validation" novalidate id="visitorForm">
+                {% csrf_token %}
+                <div class="col-md-6">
+                    {{ form.name|as_crispy_field }}
+                </div>
+                <div class="col-md-6">
+                    {{ form.phone|as_crispy_field }}
+                </div>
+                <div class="col-md-12">
+                    {{ form.address|as_crispy_field }}
+                </div>
+                <div class="col-md-6">
+                    {{ form.visit_request|as_crispy_field }}
+                </div>
+                <div class="col-md-6">
+                    {{ form.visit_date|as_crispy_field }}
+                </div>
+                <div class="col-md-6">
+                    {{ form.visit_status|as_crispy_field }}
+                </div>
+                <div class="col-md-6">
+                    {{ form.sms_opt_in|as_crispy_field }}
+                </div>
+                <button type="submit" class="btn btn-success w-100 mt-3" id="submitBtn">
+                    Submit <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+<!-- JavaScript for Form Submission and Loading Spinner -->
+<script>
+    document.getElementById('visitorForm').addEventListener('submit', function(event) {
+        const submitBtn = document.getElementById('submitBtn');
+        const spinner = submitBtn.querySelector('.spinner-border');
+        
+        event.preventDefault();
+
+        spinner.classList.remove('d-none');
+        submitBtn.disabled = true;
+
+        const formData = new FormData(this);
+        fetch('/visitor-form/', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            spinner.classList.add('d-none');
+            submitBtn.disabled = false;
+            if (data.status === 'success') {
+                alert(data.message);
+                this.reset();
+            } else {
+                alert(data.message || 'Error submitting form');
+            }
+        })
+        .catch(error => {
+            spinner.classList.add('d-none');
+            submitBtn.disabled = false;
+            alert('An error occurred: ' + error);
+        });
+    });
+</script>

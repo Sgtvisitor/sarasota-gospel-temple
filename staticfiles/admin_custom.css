@@ -1,0 +1,182 @@
+/* General Reset and Base Styles for Django Admin */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header Styling */
+#header {
+    background-color: #1a3a6a !important; /* Dark blue for branding */
+    color: #ffd700 !important; /* Gold for text, matching branding */
+    border-bottom: 2px solid #153e75; /* Subtle border for depth */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Module and Caption Headers */
+.module h2, .module caption, .inline-group h2 {
+    background: #1a3a6a !important;
+    color: white !important;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Object Tools (Add, Change, Delete Buttons) */
+.object-tools a {
+    background: #1a3a6a !important;
+    border-color: #1a3a6a !important;
+    color: #fff !important;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s, border-color 0.3s, transform 0.2s;
+}
+
+.object-tools a:hover {
+    background: #153e75 !important;
+    border-color: #153e75 !important;
+    transform: translateY(-2px); /* Subtle lift effect on hover */
+}
+
+/* Change List Results Styling */
+.change-list .filtered .results {
+    border: 1px solid #1a3a6a !important;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Table and List Styling */
+#changelist .results table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+}
+
+#changelist .results th, #changelist .results td {
+    padding: 12px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+#changelist .results th {
+    background-color: #e9ecef;
+    color: #1a3a6a;
+    font-weight: 600;
+}
+
+#changelist .results tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Buttons and Links */
+.button, .related-widget-wrapper-link, .addlink {
+    background-color: #1a3a6a;
+    border-color: #1a3a6a;
+    color: #fff;
+    border-radius: 4px;
+    padding: 6px 12px;
+    transition: background-color 0.3s, border-color 0.3s, transform 0.2s;
+}
+
+.button:hover, .related-widget-wrapper-link:hover, .addlink:hover {
+    background-color: #153e75;
+    border-color: #153e75;
+    transform: translateY(-2px);
+}
+
+/* Dark Mode Support */
+.dark-mode #header {
+    background-color: #333 !important;
+    color: #ffd700 !important;
+    border-bottom: 2px solid #444;
+}
+
+.dark-mode .module h2, .dark-mode .module caption, .dark-mode .inline-group h2 {
+    background: #333 !important;
+    color: #ffd700 !important;
+}
+
+.dark-mode .object-tools a {
+    background: #444 !important;
+    border-color: #444 !important;
+    color: #fff !important;
+}
+
+.dark-mode .object-tools a:hover {
+    background: #555 !important;
+    border-color: #555 !important;
+}
+
+.dark-mode .change-list .filtered .results {
+    border: 1px solid #444 !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode #changelist .results th {
+    background-color: #2d2d2d;
+    color: #ffd700;
+    border-bottom: 1px solid #444;
+}
+
+.dark-mode #changelist .results tr:hover {
+    background-color: #2d2d2d;
+}
+
+.dark-mode .button, .dark-mode .related-widget-wrapper-link, .dark-mode .addlink {
+    background-color: #444;
+    border-color: #444;
+    color: #fff;
+}
+
+.dark-mode .button:hover, .dark-mode .related-widget-wrapper-link:hover, .dark-mode .addlink:hover {
+    background-color: #555;
+    border-color: #555;
+}
+
+/* Form Inputs and Fields */
+.form-control, .vTextField {
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-control:focus, .vTextField:focus {
+    border-color: #1a3a6a;
+    box-shadow: 0 0 0 0.2rem rgba(26, 58, 106, 0.25);
+}
+
+.dark-mode .form-control, .dark-mode .vTextField {
+    background-color: #333;
+    color: #fff;
+    border-color: #555;
+}
+
+.dark-mode .form-control:focus, .dark-mode .vTextField:focus {
+    border-color: #ffd700;
+    box-shadow: 0 0 0 0.2rem rgba(255, 215, 0, 0.25);
+}
+
+/* Accessibility */
+:focus {
+    outline: 2px solid #1a3a6a;
+    outline-offset: 2px;
+}
+
+.dark-mode :focus {
+    outline-color: #ffd700;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #header, .module h2, .module caption, .inline-group h2 {
+        font-size: 14px;
+        padding: 6px 8px;
+    }
+    .object-tools a, .button, .related-widget-wrapper-link, .addlink {
+        padding: 4px 8px;
+        font-size: 14px;
+    }
+    #changelist .results th, #changelist .results td {
+        padding: 8px;
+    }
+}

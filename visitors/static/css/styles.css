@@ -1,0 +1,212 @@
+/* General Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+    background-image: url('{% static "images/church-background.jpg" %}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Container Styling */
+.container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+/* Form Validation Styles */
+.needs-validation .form-control:invalid {
+    border-color: #dc3545;
+    background-image: none;
+}
+
+.needs-validation .form-control:valid {
+    border-color: #28a745;
+}
+
+/* Button Styles */
+.btn-success {
+    background-color: #1a3a6a; /* Dark blue for branding */
+    border-color: #1a3a6a;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.btn-success:hover {
+    background-color: #153e75; /* Slightly darker blue for hover */
+    border-color: #153e75;
+}
+
+.btn-primary {
+    background-color: #1a3a6a;
+    border-color: #1a3a6a;
+}
+
+.btn-primary:hover {
+    background-color: #153e75;
+    border-color: #153e75;
+}
+
+.btn-outline-light {
+    color: #fff;
+    border-color: #fff;
+}
+
+.btn-outline-light:hover {
+    background-color: #fff;
+    color: #1a3a6a;
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+    background-color: #1a1a1a !important;
+    color: #fff;
+}
+
+.dark-mode .bg-dark {
+    background-color: #333 !important;
+}
+
+.dark-mode .btn-primary {
+    background-color: #4a7cb5;
+    border-color: #4a7cb5;
+}
+
+.dark-mode .btn-primary:hover {
+    background-color: #3a659c;
+    border-color: #3a659c;
+}
+
+.dark-mode .container {
+    background-color: rgba(26, 26, 26, 0.9);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .form-control {
+    background-color: #333;
+    color: #fff;
+    border-color: #555;
+}
+
+.dark-mode .form-control:focus {
+    background-color: #444;
+    border-color: #4a7cb5;
+    box-shadow: 0 0 0 0.2rem rgba(74, 124, 181, 0.25);
+}
+
+.dark-mode .needs-validation .form-control:invalid {
+    border-color: #ff6b6b;
+}
+
+.dark-mode .needs-validation .form-control:valid {
+    border-color: #6bc06b;
+}
+
+/* Navbar Styles */
+.navbar-dark.bg-dark {
+    background-color: #1a3a6a !important;
+}
+
+.navbar-nav .nav-link {
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffd700 !important; /* Gold hover color for branding */
+}
+
+.navbar-brand img {
+    margin-right: 10px;
+}
+
+/* Typography and Layout */
+h1, h2, h3, h4, h5, h6 {
+    color: #1a3a6a;
+    font-weight: 600;
+}
+
+.dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4, .dark-mode h5, .dark-mode h6 {
+    color: #ffd700; /* Gold for headings in dark mode */
+}
+
+.card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .card {
+    background-color: #2d2d2d;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.list-group-item {
+    background-color: transparent;
+    border: none;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #1a3a6a;
+    color: #fff;
+}
+
+.dark-mode footer {
+    background-color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+    .navbar-brand img {
+        height: 30px;
+    }
+    .navbar-nav .nav-link {
+        padding: 0.5rem 0.8rem;
+    }
+}
+
+/* Accessibility */
+:focus {
+    outline: 2px solid #1a3a6a;
+    outline-offset: 2px;
+}
+
+.dark-mode :focus {
+    outline-color: #ffd700;
+}
+
+/* Custom Button Hover Animation */
+.btn {
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Remove Cloudflare Script (if not needed) */
+body > script:last-child {
+    display: none; /* Remove or comment out if Cloudflare script is unnecessary */
+}

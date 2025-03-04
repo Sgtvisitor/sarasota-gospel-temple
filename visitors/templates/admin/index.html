@@ -1,0 +1,17 @@
+<!-- templates/admin/index.html -->
+{% extends "admin/base.html" %}
+{% block content %}
+    <h1>Welcome to SGT Admin Panel</h1>
+    {% if app_list %}
+        {% for app in app_list %}
+            <h2>{{ app.name }}</h2>
+            <ul>
+                {% for model in app.models %}
+                    <li>{{ model.name }}</li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    {% else %}
+        <p>You don’t have permission to view or edit anything.</p>
+    {% endif %}
+{% endblock %}
